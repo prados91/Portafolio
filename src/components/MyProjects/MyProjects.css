@@ -1,0 +1,4 @@
+.projectsContainer {
+    min-height: calc(100vh - 35px - 86px);
+    background-color: var(--bgLight);
+}

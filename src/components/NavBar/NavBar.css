@@ -1,0 +1,123 @@
+.navbar_logo {
+    height: 70px;
+    padding: 0.4rem;
+    will-change: filter;
+    transition: filter 300ms;
+    cursor: pointer;
+    margin-right: 50px;
+}
+
+.navbar_logo:hover {
+    filter: drop-shadow(0 0 0.5em #ff7b64aa);
+}
+
+.navbar_logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+a.navbar_link,
+a.navbar_link-Dark {
+    padding: 10px;
+    border: none;
+    border-style: none;
+    height: min-content;
+    text-align: center;
+    width: fit-content;
+    text-decoration: none;
+    transition: color 0.5s ease, text-decoration 0.5s ease;
+}
+
+.navbar_toggleIcon {
+    width: 50px;
+    cursor: pointer;
+}
+
+.navbar_link {
+    font-weight: 500;
+    color: var(--bgDark);
+    padding: 10px;
+    border: none;
+    border-style: none;
+    height: min-content;
+    text-align: center;
+    width: fit-content;
+    text-decoration: none;
+    transition: color 0.5s ease, text-decoration 0.5s ease;
+}
+
+.navbar_link-Dark {
+    font-weight: 500;
+    color: var(--bgLight);
+    padding: 10px;
+    border: none;
+    border-style: none;
+    height: min-content;
+    text-align: center;
+    width: fit-content;
+    text-decoration: none;
+    transition: color 0.5s ease, text-decoration 0.5s ease;
+}
+
+.navbar_link:hover {
+    color: #535bf2;
+    text-decoration: underline;
+}
+
+a.navbar_link.linkActive {
+    color: var(--bgOrange);
+    padding: 10px;
+    border: none;
+    border-style: none;
+    height: min-content;
+    font-size: 16px;
+    text-align: center;
+    width: fit-content;
+    text-decoration: none;
+}
+
+
+.dark {
+    background-color: var(--bgDark);
+}
+
+nav.dark {
+    background-color: var(--bgDark);
+}
+
+button.navbar-toggler {
+    background-color: rgb(194, 194, 194);
+    background-color: var(--bgOrange);
+    margin-right: 16px;
+}
+
+.collapse.navbar-collapse ul {
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+a.nav-link.dropdown-toggle {
+    color: black;
+    transition: color 0.5s ease;
+    background-color: transparent;
+}
+
+a.nav-link.dropdown-toggle:hover {
+    color: var(--bgOrange);
+}
+
+a.dropdown-item {
+    color: black;
+    transition: color 0.5s ease;
+    background-color: transparent;
+}
+
+a.dropdown-item:hover {
+    color: var(--bgOrange);
+    background-color: transparent;
+}
+
+a.dropdown-item.nav_active {
+    color: var(--bgOrange);
+    background-color: transparent;
+}

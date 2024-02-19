@@ -1,0 +1,12 @@
+.footer_container {
+    background-color:var(--bgDark);
+    color: var(--bgWhite);
+    padding: 10px;
+    height: 35px;
+}
+
+.footer_container p {
+    font-size: 12px;
+    text-align: center;
+    margin: 0;
+}
