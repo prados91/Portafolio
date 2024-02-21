@@ -9,28 +9,38 @@ import MyProjects from './components/MyProjects/MyProjects';
 import Footer from './components/Footer/Footer';
 
 import './App.css'
+import Resume from './components/Resume/Resume';
 
 function App() {
     const [theme, setTheme] = useState('light')
 
-    const date = new Date()
-    const year = date.getFullYear()
 
 
     return (
-        <BrowserRouter>
-            
-                <NavBar theme={theme} setTheme={setTheme} />
 
-            <Routes>
-                <Route exact path='/' element={<IndexContainer />} />
-                <Route exact path="/about-me" element={<AboutMe />} />
-                <Route exact path="/contact" element={<Contact />} />
-                <Route exact path="/projects" element={<MyProjects />} />
-            </Routes>
-            <Footer year={year} />
-        </BrowserRouter>
+        <div className="App">
+            <NavBar />
+            <Resume />
+
+            <Footer />
+        </div>
+
     )
+
 }
 
 export default App
+
+
+{/*
+        <BrowserRouter>
+            <NavBar theme={theme} setTheme={setTheme} />
+            <Routes>
+                <Route index element={<IndexContainer theme={theme} setTheme={setTheme} />} />
+                <Route path="/about" element={<AboutMe theme={theme} setTheme={setTheme} />} />
+                <Route path="/contact" element={<Contact theme={theme} setTheme={setTheme} />} />
+                <Route path="/projects" element={<MyProjects theme={theme} setTheme={setTheme} />} />
+            </Routes>
+            <Footer year={year} />
+        </BrowserRouter>
+    */}

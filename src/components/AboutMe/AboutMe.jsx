@@ -1,9 +1,14 @@
 import React from 'react'
 import './AboutMe.css'
-const AboutMe = () => {
-  return (
-    <div className='aboutContainer'>AboutMe</div>
-  )
+
+const AboutMe = ({ theme, setTheme }) => {
+    return (
+        <div id='#vision' className='aboutContainer'>
+            <section>
+                <h1>Aboute Me</h1>
+            </section>
+        </div>
+    )
 }
 
-export default AboutMe
+export default AboutMe;

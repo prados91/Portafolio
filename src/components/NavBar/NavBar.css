@@ -1,10 +1,25 @@
+.navbar_container {
+    background-color: var(--bgBlack);
+    
+}
+
+.navbar_container div {
+    background-color: var(--bgBlack);
+}
+
+.navbar_collapse,
+.navbar_ul {
+    background-color: var(--bgBlack);
+}
+
 .navbar_logo {
-    height: 70px;
-    padding: 0.4rem;
+    width: auto;
+    height: 50px;
     will-change: filter;
     transition: filter 300ms;
     cursor: pointer;
-    margin-right: 50px;
+    margin-right: 0;
+    background-color: var(--bgBlack);
 }
 
 .navbar_logo:hover {
@@ -16,7 +31,7 @@
 }
 
 a.navbar_link,
-a.navbar_link-Dark {
+a.navbar_linkdark {
     padding: 10px;
     border: none;
     border-style: none;
@@ -25,11 +40,13 @@ a.navbar_link-Dark {
     width: fit-content;
     text-decoration: none;
     transition: color 0.5s ease, text-decoration 0.5s ease;
+    background-color: var(--bgLight);
 }
 
 .navbar_toggleIcon {
     width: 50px;
     cursor: pointer;
+    background-color: var(--bgBlack);
 }
 
 .navbar_link {
@@ -45,7 +62,7 @@ a.navbar_link-Dark {
     transition: color 0.5s ease, text-decoration 0.5s ease;
 }
 
-.navbar_link-Dark {
+.navbar_linkdark {
     font-weight: 500;
     color: var(--bgLight);
     padding: 10px;
@@ -56,6 +73,11 @@ a.navbar_link-Dark {
     width: fit-content;
     text-decoration: none;
     transition: color 0.5s ease, text-decoration 0.5s ease;
+}
+
+.navbar_linkdark:hover {
+    color: var(--bgOrange);
+    text-decoration: underline;
 }
 
 .navbar_link:hover {
@@ -86,7 +108,7 @@ nav.dark {
 
 button.navbar-toggler {
     background-color: rgb(194, 194, 194);
-    background-color: var(--bgOrange);
+    background-color: var(--bgBlue1);
     margin-right: 16px;
 }
 
@@ -103,7 +125,7 @@ a.nav-link.dropdown-toggle {
 }
 
 a.nav-link.dropdown-toggle:hover {
-    color: var(--bgOrange);
+    color: var(--bgBlue3);
 }
 
 a.dropdown-item {

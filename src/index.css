@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-
+/*
 * {
-    --bgOrange: #FFA62B;
-    --bgBlue: #499FB6;
-    --bgWhite: #FFFFFF;
     --bgBlack: #000000;
-    --bgLight:#ffffec;
+    --bgBlue1: #1DABDC;
+    --bgBlue2: #68C7E7;
+    --bgBlue3: #B3E3F3;
+    --bgWhite: #FFFFFF;
+    --bgLight: #ffffec;
     --bgDark: #343330;
     --trTime: 0.5s;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style: none;
-
+    background-color: var(--bgBlue1);
 }
 
 :root {
@@ -28,9 +29,10 @@
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.85);
     background-color: var(--bgDark);
+    min-height: 100vh;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
+}*/
