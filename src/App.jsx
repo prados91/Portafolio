@@ -1,32 +1,81 @@
-import { useState } from 'react'
+import React from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import Loading from './components/Loading/Loading';
 import NavBar from './components/NavBar/NavBar'
-import IndexContainer from './components/IndexContainer/IndexContainer'
 import AboutMe from './components/AboutMe/AboutMe'
 import Contact from './components/Contact/Contact';
-import MyProjects from './components/MyProjects/MyProjects';
 import Footer from './components/Footer/Footer';
+import MyProjects from './components/MyProjects/MyProjects';
+import Resume from './components/Resume/Resume';
+import Skills from './components/Skills/Skills';
+import Tech from './components/Tech/Tech';
+
+import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
+
 
 import './App.css'
-import Resume from './components/Resume/Resume';
 
 function App() {
     const [theme, setTheme] = useState('light')
 
+    const [front, setFront] = useState([]);
+    const [back, setBack] = useState([]);
+    const [learn, setLearn] = useState([]);
+    const [techs, setTechs] = useState([]);
+    const [load, setLoad] = useState(true);
 
+    const getIcons = async () => {
+        const db = getFirestore();
+        const dbIcons = collection(db, "icons");
+
+        try {
+            const dbFront = query(dbIcons, where("tech", "==", "frontend"))
+            const dbBack = query(dbIcons, where("tech", "==", "backend"))
+            const dbLearn = query(dbIcons, where("tech", "==", "learning"))
+            const dbTechs = query(dbIcons, where("tech", "==", "tech"))
+
+            const [frontDocs, backDocs, learnDocs, techsDocs] = await Promise.all([
+                getDocs(dbFront),
+                getDocs(dbBack),
+                getDocs(dbLearn),
+                getDocs(dbTechs)
+            ]);
+
+            setFront(frontDocs.docs.map(doc => ({ id: doc.id, ...doc.data() })).sort((a, b) => a.id - b.id));
+            setBack(backDocs.docs.map(doc => ({ id: doc.id, ...doc.data() })).sort((a, b) => a.id - b.id));
+            setLearn(learnDocs.docs.map(doc => ({ id: doc.id, ...doc.data() })).sort((a, b) => a.id - b.id));
+            setTechs(techsDocs.docs.map(doc => ({ id: doc.id, ...doc.data() })).sort((a, b) => a.id - b.id));
+            setLoad(false);
+        } catch (error) {
+            console.log(error);
+        }
+
+    };
+
+    useEffect(() => {
+        setLoad(true);
+        getIcons();
+    }, []);
 
     return (
 
-        <div className="App">
-            <NavBar />
-            <Resume />
-
-            <Footer />
+        <div>
+            {load ? (<Loading />) :
+                (<div >
+                    <header>
+                        <NavBar />
+                    </header>
+                    <Resume />
+                    <MyProjects />
+                    <Skills />
+                    <Tech front={front} back={back} learn={learn} techs={techs} />
+                    <Footer />
+                </div>
+                )}
         </div>
-
     )
-
 }
 
 export default App

@@ -1,0 +1,79 @@
+/*** Tech Css ***/
+.techContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.techItem {
+    background-color: var(--bgBlue2);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .techContainer {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Estilos para el contenedor del artículo */
+.article-container {
+    position: relative;
+    border-radius: 20px;
+    padding: 24px;
+    border: 1px solid #333;
+    /* Cambia esto al color deseado */
+    background-image: linear-gradient(to left, #333, #000);
+    /* Cambia esto a tu gradiente deseado */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* Estilos para la superposición */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    background: radial-gradient(600px at 346.5px 37.0156px, rgba(255, 182, 255, 0.1), transparent 40%);
+}
+
+/* Estilos para el título del artículo */
+.article-title {
+    text-align: center;
+    margin-bottom: 32px;
+    font-size: 24px;
+    font-weight: bold;
+    background: -webkit-linear-gradient(top, #94a3b8, #1e293b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Estilos para la cuadrícula */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+/* Estilos para los elementos de la cuadrícula */
+.grid-item {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para el texto de los elementos de la cuadrícula */
+.grid-item-text {
+    font-size: 14px;
+    text-align: center;
+}

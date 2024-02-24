@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import headerImg from "../../assets/img/react.svg";
+import headerImg from "../../assets/icons/icon-react.svg";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+
+import './Resume.css'
 
 const Resume = () => {
 
@@ -12,7 +14,7 @@ const Resume = () => {
     const [text, setText] = useState('');
     const [delta, setDelta] = useState(300 - Math.random() * 100);
     const [index, setIndex] = useState(1);
-    const toRotate = ["FrontEnd Developer", "React", "CSS", "JavaScript"];
+    const toRotate = ["FrontEnd", "React", "CSS", "JavaScript"];
     const period = 2000;
 
     useEffect(() => {
@@ -58,7 +60,7 @@ const Resume = () => {
                             {({ isVisible }) =>
                                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                                     <span className="tagline">Welcome to my Portfolio</span>
-                                    <h1>{`Hi! I'm Augusto`} <span className="txt-rotate" dataperiod="1000" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
+                                    <h1>{`Hi! I'm Augusto`} <span className="txt-rotate" dataperiod="1000" data-rotate={toRotate} ><span className="wrap">{text}</span></span></h1>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                                     <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
                                 </div>}
