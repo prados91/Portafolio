@@ -1,47 +1,76 @@
-export const icons = [
+const icons = [
     {
         id: 1,
         title: "Css",
-        image: "/icons/icon-ccs.svg",
+        image: "/src/assets/icons/icon-ccs.svg",
+        tech: "front",
     },
     {
         id: 2,
         title: "Html",
-        image: "/assets/img/icon-html5.svg",
+        image: "/src/assets/icons/icon-html5.svg",
+        tech: "front",
     },
     {
         id: 3,
-        title: "Java Script",
-        image: "/assets/img/icon-javaScript.svg",
+        title: "JavaScript",
+        image: "/src/assets/icons/icon-javaScript.svg",
+        tech: "front",
     },
     {
         id: 4,
-        title: "Mongo",
-        image: "/assets/img/icon-mongo.svg",
+        title: "MongoDB",
+        image: "/src/assets/icons/icon-mongo.svg",
+        tech: "back",
     },
-    {
+    /*{
         id: 5,
-        title: "Mongo",
-        image: "/assets/img/icon-mongo2.svg",
-    },
+        title: "MongoDB",
+        image: "/src/assets/icons/icon-mongo2.svg",
+        tech: "back",
+    },*/
     {
         id: 6,
         title: "NodeJs",
-        image: "/assets/img/icon-nodejs.svg",
+        image: "/src/assets/icons/icon-nodejs.svg",
+        tech: "back",
     },
     {
         id: 7,
         title: "Python",
-        image: "/assets/img/icon-python.svg",
+        image: "/src/assets/icons/icon-python.svg",
+        tech: "learn",
     },
     {
         id: 8,
         title: "React",
-        image: "/assets/img/icon-react.svg",
+        image: "/src/assets/icons/icon-react.svg",
+        tech: "front",
     },
     {
         id: 9,
         title: "Sass",
-        image: "/assets/img/icon-sass.svg",
+        image: "/src/assets/icons/icon-sass.svg",
+        tech: "front",
+    },
+    {
+        id: 10,
+        title: "GitHub",
+        image: "/src/assets/icons/icon-github.svg",
+        tech: "tech",
+    },
+    {
+        id: 11,
+        title: "VSCode",
+        image: "/src/assets/icons/icon-vscode.svg",
+        tech: "tech",
+    },
+    {
+        id: 12,
+        title: "NPM",
+        image: "/src/assets/icons/icon-npm.svg",
+        tech: "tech",
     },
 ];
+
+export { icons };

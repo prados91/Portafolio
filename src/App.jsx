@@ -1,79 +1,92 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+//import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Loading from './components/Loading/Loading';
-import NavBar from './components/NavBar/NavBar'
+import NavBar from './components/NavBar/NavBar.jsx'
 import AboutMe from './components/AboutMe/AboutMe'
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import MyProjects from './components/MyProjects/MyProjects';
-import Resume from './components/Resume/Resume';
+import Home from './components/Home/Home.jsx';
 import Skills from './components/Skills/Skills';
 import Tech from './components/Tech/Tech';
 
-import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
+import MoveToTop from "./components//MoveToTop/MoveToTop";
+import CircleLoader from "react-spinners/CircleLoader";
 
+import { icons } from './assets/db.js';
 
 import './App.css'
 
 function App() {
-    const [theme, setTheme] = useState('light')
+    const [theme, setTheme] = useState('dark')
 
     const [front, setFront] = useState([]);
     const [back, setBack] = useState([]);
     const [learn, setLearn] = useState([]);
     const [techs, setTechs] = useState([]);
-    const [load, setLoad] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     const getIcons = async () => {
-        const db = getFirestore();
-        const dbIcons = collection(db, "icons");
-
         try {
-            const dbFront = query(dbIcons, where("tech", "==", "frontend"))
-            const dbBack = query(dbIcons, where("tech", "==", "backend"))
-            const dbLearn = query(dbIcons, where("tech", "==", "learning"))
-            const dbTechs = query(dbIcons, where("tech", "==", "tech"))
+            const frontIcons = icons.filter(icon => icon.tech === "front");
+            const backIcons = icons.filter(icon => icon.tech === "back");
+            const learnIcons = icons.filter(icon => icon.tech === "learn");
+            const techIcons = icons.filter(icon => icon.tech === "tech");
 
-            const [frontDocs, backDocs, learnDocs, techsDocs] = await Promise.all([
-                getDocs(dbFront),
-                getDocs(dbBack),
-                getDocs(dbLearn),
-                getDocs(dbTechs)
-            ]);
+            setFront(frontIcons);
+            setBack(backIcons);
+            setLearn(learnIcons);
+            setTechs(techIcons);
 
-            setFront(frontDocs.docs.map(doc => ({ id: doc.id, ...doc.data() })).sort((a, b) => a.id - b.id));
-            setBack(backDocs.docs.map(doc => ({ id: doc.id, ...doc.data() })).sort((a, b) => a.id - b.id));
-            setLearn(learnDocs.docs.map(doc => ({ id: doc.id, ...doc.data() })).sort((a, b) => a.id - b.id));
-            setTechs(techsDocs.docs.map(doc => ({ id: doc.id, ...doc.data() })).sort((a, b) => a.id - b.id));
-            setLoad(false);
+            //setLoading(false);
         } catch (error) {
             console.log(error);
         }
-
     };
 
     useEffect(() => {
-        setLoad(true);
+        setLoading(true);
         getIcons();
+        setTimeout(() => {
+            setLoading(false);
+        }, 1500);
     }, []);
 
     return (
 
         <div>
-            {load ? (<Loading />) :
-                (<div >
-                    <header>
-                        <NavBar />
-                    </header>
+            {loading ? (
+                <Loading />
+            ) : (
+                < >
+                    <NavBar />
+                    <MoveToTop />
+                    {/*}
                     <Resume />
                     <MyProjects />
                     <Skills />
                     <Tech front={front} back={back} learn={learn} techs={techs} />
                     <Footer />
-                </div>
-                )}
+                    <MoveToTop />*/}
+
+                    <TransitionGroup>
+                        <CSSTransition key={location.key} classNames="fade" timeout={500}>
+                            <Routes location={location}>
+                                <Route path="/" element={<Home />} />
+                                <Route path="/about" element={<AboutMe />} />
+                                <Route path="/projects" element={<MyProjects />} />
+                                <Route path="/contact" element={<Contact />} />
+                                <Route path="/skills" element={<Skills />} />
+                            </Routes>
+                        </CSSTransition>
+                    </TransitionGroup>
+                    <Footer />
+                    <MoveToTop />
+                </>
+            )}
         </div>
     )
 }

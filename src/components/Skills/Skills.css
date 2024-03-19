@@ -1,45 +1,54 @@
-/************ Skills Css ************/
-.skill {
-    padding: 0 0 50px 0;
-    position: relative;
+/* Skills section */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px 10%;
 }
 
-.skill-bx {
-    background: #151515;
-    border-radius: 64px;
+.SkillBox {
+    width: max(15%, 150px);
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 25px 25px 0px;
+    border: 3px solid var(--color);
+    font-size: 64px;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.SkillBox:hover {
+    transform: scale(1.2);
+    background-color: var(--color);
+    border: none;
+}
+
+.SkillsHeading {
     text-align: center;
-    padding: 60px 50px;
-    margin-top: -60px;
+    margin: 50px 10px;
+    font-size: 36px;
+    letter-spacing: 0.6px;
 }
 
-.skill h2 {
-    font-size: 45px;
-    font-weight: 700;
-}
+@media (max-width: 500px) {
+    .AboutText {
+        font-size: 16px;
+    }
 
-.skill p {
-    color: #B8B8B8;
-    font-size: 18px;
-    letter-spacing: 0.8px;
-    line-height: 1.5em;
-    margin: 14px 0 75px 0;
-}
+    .Avatar {
+        width: 200px;
+        margin-bottom: 25px;
+    }
 
-.skill-slider {
-    width: 80%;
-    margin: 0 auto;
-    position: relative;
-}
+    .SkillsHeading {
+        font-size: 26px;
+    }
 
-.skill-slider .item img {
-    width: 50%;
-    margin: 0 auto 15px auto;
-}
-
-.background-image-left {
-    top: 28%;
-    position: absolute;
-    bottom: 0;
-    width: 40%;
-    z-index: -4;
+    .SkillBox {
+        width: 100px;
+        height: 100px;
+        font-size: 50px;
+    }
 }

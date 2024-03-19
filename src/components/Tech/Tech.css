@@ -1,16 +1,15 @@
-/*** Tech Css ***/
+/* Tech Container */
 .techContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 1fr);
+    gap: 1rem;
+    justify-content: center;
 }
 
 .techItem {
-    background-color: var(--bgBlue2);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    width: auto;
 }
 
 @media (max-width: 768px) {
@@ -19,36 +18,21 @@
     }
 }
 
-/* Estilos para el contenedor del artículo */
+/* Article Container */
 .article-container {
-    position: relative;
     border-radius: 20px;
-    padding: 24px;
+    padding: 12px;
     border: 1px solid #333;
-    /* Cambia esto al color deseado */
     background-image: linear-gradient(to left, #333, #000);
-    /* Cambia esto a tu gradiente deseado */
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
     overflow: hidden;
+    height: m;
 }
 
-/* Estilos para la superposición */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    background: radial-gradient(600px at 346.5px 37.0156px, rgba(255, 182, 255, 0.1), transparent 40%);
-}
-
-/* Estilos para el título del artículo */
 .article-title {
     text-align: center;
     margin-bottom: 32px;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
     background: -webkit-linear-gradient(top, #94a3b8, #1e293b);
     -webkit-background-clip: text;
@@ -56,14 +40,15 @@
     -webkit-text-fill-color: transparent;
 }
 
-/* Estilos para la cuadrícula */
+/* Grid */
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
+    padding: 0;
 }
 
-/* Estilos para los elementos de la cuadrícula */
+/* Grid Item */
 .grid-item {
     border-radius: 20px;
     display: flex;
@@ -72,8 +57,29 @@
     align-items: center;
 }
 
-/* Estilos para el texto de los elementos de la cuadrícula */
 .grid-item-text {
     font-size: 14px;
     text-align: center;
+}
+
+.grid-img {
+    width: 3rem;
+    height: 3rem;
+}
+
+.article-title {
+    grid-column: 1 / -1;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-img {
+    width: 3rem;
+    /* Ajusta el tamaño de las imágenes según sea necesario */
+    height: 3rem;
 }

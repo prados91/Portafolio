@@ -3,6 +3,7 @@ import './Loading.css'
 
 const Loading = () => {
     return (
+
         <div className='loading__body'>
             <div className="ball">
                 <div className="inner">
@@ -13,7 +14,6 @@ const Loading = () => {
                 </div>
             </div>
             <div className="shadow">
-
             </div>
         </div>
     )
