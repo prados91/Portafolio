@@ -8,17 +8,28 @@ import headerImg from "../../assets/icons/icon-react.svg";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+
+import FilmImage from "../../images/Film.png";
+import GymImage from "../../images/gym.png";
+import ColourImage from "../../images/colour.png";
+import BackpackImage from "../../images/backpack.png";
+
+import ProjectBox from '../ProjectBox/ProjectBox';
+
 import './MyProjects.css'
 
 const MyProjects = () => {
     return (
 
-        <section className="banner projectsContainer " id="projects">
-            <Container>
-                <Row>
-                    <Col xs={6}>Projects</Col>
-                    <Col xs={6}>Projects</Col>
-                </Row>
+        <section className=" projectsContainer " id="projects">
+            <h1 className="projectHeading">
+                My <b>Projects</b>
+            </h1>
+            <Container className="project">
+                <ProjectBox projectPhoto={GymImage} projectName="Levels" />
+                <ProjectBox projectPhoto={FilmImage} projectName="Movie" />
+                <ProjectBox projectPhoto={ColourImage} projectName="ColourPalette" />
+                <ProjectBox projectPhoto={BackpackImage} projectName="Backpack" />
             </Container>
         </section>
     )

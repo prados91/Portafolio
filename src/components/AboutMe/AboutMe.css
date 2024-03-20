@@ -3,10 +3,10 @@
 .AboutPage {
     display: flex;
     justify-content: space-evenly;
-    min-height: 80vh;
-    margin-top: 100px;
+    min-height: 50vh;
     align-items: center;
     padding: 25px;
+    margin-top: 180px;
 }
 
 .AboutText {
@@ -27,30 +27,4 @@
     color: var(--color);
     text-decoration: underline;
     font-weight: bold;
-}
-
-@media (max-width: 900px) {
-    .AboutPage {
-        display: block;
-        text-align: center;
-        padding: 30px;
-    }
-
-    .AboutText {
-        text-align: left;
-        display: inline-block;
-        width: 95%;
-        line-height: 24px;
-        letter-spacing: 0.6px;
-        margin-bottom: 80px;
-    }
-
-    .AboutTextHeading {
-        font-size: 26px;
-    }
-
-    .Avatar {
-        width: 200px;
-        margin-bottom: 75px;
-    }
 }

@@ -1,11 +1,43 @@
 import React from "react";
 import Skills from "../Skills/Skills";
+import Tech from "../Tech/Tech";
+import { useState, useEffect } from "react";
 import { FaFileDownload } from "react-icons/fa";
+
+import { icons } from '../../assets/db.js'
 
 import './AboutMe.css'
 const AboutMe = () => {
+
+    const [front, setFront] = useState([]);
+    const [back, setBack] = useState([]);
+    const [learn, setLearn] = useState([]);
+    const [techs, setTechs] = useState([]);
+
+    const getIcons = async () => {
+        try {
+            const frontIcons = icons.filter(icon => icon.tech === "front");
+            const backIcons = icons.filter(icon => icon.tech === "back");
+            const learnIcons = icons.filter(icon => icon.tech === "learn");
+            const techIcons = icons.filter(icon => icon.tech === "tech");
+
+            setFront(frontIcons);
+            setBack(backIcons);
+            setLearn(learnIcons);
+            setTechs(techIcons);
+
+            //setLoading(false);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        getIcons();
+    }, []);
+
     return (
-        <>
+        <div className="container">
             <div className="AboutPage">
                 <div className="AboutText">
                     <h1 className="AboutTextHeading">
@@ -21,7 +53,6 @@ const AboutMe = () => {
                         </button>
                     </a>
                 </div>
-
                 <div></div>
             </div>
 
@@ -30,16 +61,17 @@ const AboutMe = () => {
                 <Skills skill="HTML" />
                 <Skills skill="CSS" />
                 <Skills skill="Bootstrap" />
-                <Skills skill="Tailwind" />
                 <Skills skill="Javascript" />
                 <Skills skill="React" />
-                <Skills skill="Git" />
                 <Skills skill="Github" />
-                <Skills skill="C++" />
                 <Skills skill="Figma" />
                 <Skills skill="Npm" />
             </div>
-        </>
+
+            <section>
+                <Tech front={front} back={back} learn={learn} techs={techs} />
+            </section>
+        </div>
     );
 };
 

@@ -14,14 +14,12 @@ import Skills from './components/Skills/Skills';
 import Tech from './components/Tech/Tech';
 
 import MoveToTop from "./components//MoveToTop/MoveToTop";
-import CircleLoader from "react-spinners/CircleLoader";
 
 import { icons } from './assets/db.js';
 
 import './App.css'
 
 function App() {
-    const [theme, setTheme] = useState('dark')
 
     const [front, setFront] = useState([]);
     const [back, setBack] = useState([]);
@@ -64,14 +62,6 @@ function App() {
                 < >
                     <NavBar />
                     <MoveToTop />
-                    {/*}
-                    <Resume />
-                    <MyProjects />
-                    <Skills />
-                    <Tech front={front} back={back} learn={learn} techs={techs} />
-                    <Footer />
-                    <MoveToTop />*/}
-
                     <TransitionGroup>
                         <CSSTransition key={location.key} classNames="fade" timeout={500}>
                             <Routes location={location}>
@@ -79,7 +69,6 @@ function App() {
                                 <Route path="/about" element={<AboutMe />} />
                                 <Route path="/projects" element={<MyProjects />} />
                                 <Route path="/contact" element={<Contact />} />
-                                <Route path="/skills" element={<Skills />} />
                             </Routes>
                         </CSSTransition>
                     </TransitionGroup>

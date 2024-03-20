@@ -17,7 +17,6 @@ import './Home.css'
 const Resume = () => {
 
     return (
-
         <section className="banner" id="home">
             <Container>
                 <Row className="aligh-items-center">
@@ -30,23 +29,26 @@ const Resume = () => {
                                 </h1>
                                 <Type />
                                 <Link to="/About">
-                                    <button>
+                                    <button className="homebtn">
                                         About Me
                                         <BsPerson />
                                     </button>
                                 </Link>
 
                                 <Link to="/Contact">
-                                    <button>
+                                    <button className="homebtn">
                                         Contact <CgPhone />
                                     </button>
                                 </Link>
                             </div>
-                            <Tilt>
-                                <img className="Avatar" src={""} alt="" />
-                            </Tilt>
                         </div>
                     </Col>
+                    <Col xs={12} md={6} xl={5}>
+                        <Tilt>
+                            <img className="Avatar" src={headerImg} alt="" />
+                        </Tilt>
+                    </Col>
+                    {/*
                     <Col xs={12} md={6} xl={5}>
                         <TrackVisibility>
                             {({ isVisible }) =>
@@ -54,7 +56,7 @@ const Resume = () => {
                                     <img src={headerImg} alt="Header Img" />
                                 </div>}
                         </TrackVisibility>
-                    </Col>
+                    </Col>*/}
                 </Row>
             </Container>
         </section>
